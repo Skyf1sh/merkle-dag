@@ -4,6 +4,7 @@ import (
 	"hash"
 )
 
+<<<<<<< HEAD
 func Add(store KVStore, node Node, h hash.Hash) []byte {
 	switch node.Type() {
 	case FILE:
@@ -42,4 +43,20 @@ func HashChildren(children [][]byte, h hash.Hash) []byte {
 		h.Write(child)
 	}
 	return h.Sum(nil)
+=======
+type Link struct {
+	Name string
+	Hash []byte
+	Size int
+}
+
+type Object struct {
+	Links []Link
+	Data  []byte
+}
+
+func Add(store KVStore, node Node, hp HashPool) []byte {
+	// TODO 将分片写入到KVStore中，并返回Merkle Root
+	return nil
+>>>>>>> c1a60202beb4fd3abcbf7a2bc99c8ff22ea55320
 }
